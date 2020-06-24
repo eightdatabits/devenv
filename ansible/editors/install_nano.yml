@@ -1,0 +1,8 @@
+
+# These tasks install and configure nano.
+- name: Install nano (Debian)
+  apt:
+    name: nano
+    state: present
+  become: true
+  when: ansible_facts['os_family'] == "Debian"

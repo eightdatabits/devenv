@@ -1,0 +1,15 @@
+---
+  - name: "Installing Development Environment"
+    hosts: localhost
+    connection: local
+
+    tasks:
+      - name: "Install and configure editors"
+        include_tasks:
+          file: editors/install_{{ item }}.yml
+          apply:
+            tags:
+              - editors
+        loop:
+          - emacs
+          - nano
